@@ -1,0 +1,75 @@
+footer {
+    background: #333;
+    color: #fff;
+    font-size: 0.9em;
+    line-height: 1.6em;
+    padding: 50px 0;
+    margin-top: 50px;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    padding: 0 50px;
+}
+
+.footer-section {
+    flex: 1;
+    padding: 10px 20px;
+    min-width: 250px;
+}
+
+.footer-section h2 {
+    color: #fff;
+    font-size: 1.8em;
+    text-transform: capitalize;
+    margin-bottom: 10px;
+}
+
+.footer-section a {
+    text-decoration: none;
+    color: #bbb;
+    transition: color 0.3s ease;
+}
+
+.footer-section a:hover {
+    color: #fff;
+}
+
+.footer-section ul a {
+    display: block;
+    margin: 5px 0;
+}
+
+.contact-form .contact-input {
+    width: calc(100% - 25px);
+    padding: 10px;
+    background: #444;
+    border: none;
+    color: #fff;
+    margin-bottom: 10px;
+}
+
+.contact-form .btn {
+    display: inline-block;
+    background: #555;
+    color: #fff;
+    padding: 10px 20px;
+    text-transform: uppercase;
+    border: none;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.contact-form .btn:hover {
+    background: #777;
+}
+
+.footer-bottom {
+    text-align: center;
+    padding: 20px;
+    background: #222;
+    margin-top: 20px;
+}

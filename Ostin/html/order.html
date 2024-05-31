@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../style/animation.css">
+    <link rel="stylesheet" href="../style/catalog.css">
+    <link rel="stylesheet" href="../style/header/header.css">
+    <link rel="stylesheet" href="../style/header/navbar.css">
+    <link rel="stylesheet" href="../style/side-menu.css">
+    <link rel="stylesheet" href="../style/header/search.css">
+    <link rel="stylesheet" href="../style/media.css">
+    <link rel="stylesheet" href="../style/orderPage-options.css">
+    <link rel="stylesheet" href="../style//product-card/orderPage-product.css">
+    <link rel="stylesheet" href="../style/product-card/product-card.css">
+    <link rel="stylesheet" href="../style/footer.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="icon" href="../assets/img/ostin-small.png" type="image/x-icon">
+    <title>Order Page</title>
+</head>
+<body>
+    <header>
+        <nav>
+            <img src="../assets/img/ostin-logo(2) (2).png" class="logo" />
+            <button class="menu-button" id="menu-button"><i class="fas fa-bars"></i></button>
+            <ul class="nav-links">
+                <li><a href="#" onclick="goTo('index')">Home</a></li>
+                <li><a href="#" onclick="toggleCatalog()">Catalog</a></li>
+                <li><a href="#" onclick="loadPage('about')">About</a></li>
+                <li class="dropdown">
+                    <a href="#" onclick="loadPage('shop')">Shop</a>
+                    <ul class="dropdown-shop">
+                        <li><a href="#">Address</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#" onclick="loadPage('contact')">Contact</a>
+                    <ul class="dropdown-content">
+                        <li><a href="https://facebook.com" target="_blank"><i class="fab fa-facebook"></i> Facebook</a></li>
+                        <li><a href="https://twitter.com" target="_blank"><i class="fab fa-twitter"></i> Twitter</a></li>
+                        <li><a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i> Instagram</a></li>
+                    </ul>
+                </li>
+            </ul>
+            <div class="search-wrapper" id="search-wrapper">
+                <div class="search-icon" onclick="toggleSearch()">
+                    <i class="fas fa-search"></i>
+                </div>
+                <input type="text" placeholder="Search..." class="search-input" id="search-input">
+            </div>
+        </nav>
+        <nav class="side-menu" id="side-menu">
+            <button class="close-menu" id="close-menu">&times;</button>
+            <div class="search-wrapper">
+                <div class="search-icon"><i class="fas fa-search"></i></div>
+                <input type="text" class="search-input" placeholder="Search...">
+                <div class="clear-icon">&times;</div>
+            </div>
+            <a href="#" onclick="toggleMenuLink('index')">Home</a>
+            <a href="#" onclick="toggleMenuLink('catalog')">Catalog</a>
+            <a href="#" onclick="toggleMenuLink('about')">About</a>
+            <a href="#" class="dropdown-toggle" onclick="toggleDropdown('shop-dropdown')">Shop</a>
+                <ul class="dropdown-menu" id="shop-dropdown">
+                    <li><a href="#">Address</a></li>
+                </ul>
+            <a href="#" class="dropdown-toggle" onclick="toggleDropdown('contact-dropdown')">Contact</a>
+                <ul class="dropdown-menu" id="contact-dropdown">
+                    <li><a href="https://facebook.com" target="_blank">Facebook</a></li>
+                    <li><a href="https://twitter.com" target="_blank">Twitter</a></li>
+                    <li><a href="https://twitter.com" target="_blank">Instagram</a></li>
+                </ul>
+        </nav>
+    </header>
+
+    <main id="main-content">
+        <section class="catalog-section" id="catalog-section">
+            <h2>Выберите характеристики куртки</h2>
+            <div class="form-container">
+                <div>
+                    <div class="combobox-container">
+                        <label for="model">Model:</label>
+                        <select id="model" onchange="updateModelOptions()">
+                            <option value="">Select a model:</option>
+                            <option value="Jacket">Jacket</option>
+                            <option value="Windbreaker">Windbreaker</option>
+                            <option value="Coat">Coat</option>
+                            <option value="Cloak">Cloak</option>
+                        </select>
+                    </div>
+                    <div class="combobox-container">
+                        <label for="color">Color:</label>
+                        <select id="color">
+                            <option value="">Select a color:</option>
+                            <option value="#FF0000">Red</option>
+                            <option value="#00FF00">Green</option>
+                            <option value="#0000FF">Blue</option>
+                            <option value="#FFFFFF">White</option>
+                            <option value="#000000">Black</option>
+                            <option value="#FFFF00">Yellow</option>
+                            <option value="#FF00FF">Pink</option>
+                            <option value="#00FFFF">Cyan</option>
+                        </select>
+                    </div>
+                    <div class="combobox-container">
+                        <label for="size">Size:</label>
+                        <select id="size">
+                            <option value="">Select a size:</option>
+                            <option value="S">S</option>
+                            <option value="M">M</option>
+                            <option value="L">L</option>
+                            <option value="XL">XL</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="price-inputs">
+                    <div class="price-container">
+                        <label for="min-price">Min Price:</label>
+                        <input type="number" id="min-price" placeholder="Min Price" />
+                    </div>
+                    <div class="price-container">
+                        <label for="max-price">Max Price:</label>
+                        <input type="number" id="max-price" placeholder="Max Price" />
+                    </div>
+                    <button onclick="findProducts()">Find</button>
+                </div>
+            </div>
+        </section>
+      <section id="product-display" class="product-display">
+          <div class="product-image-container">
+              <button class="prev" onclick="changeImage(-1)">&#10094;</button>
+              <img id="product-image" src="../assets/img/jacket-1.jpg" alt="Product Image">
+              <button class="next" onclick="changeImage(1)">&#10095;</button>
+          </div>
+          <div class="product-details">
+              <h1 id="product-name">Product Name</h1>
+              <p id="product-description">Product description goes here.</p>
+              <div class="product-options">
+                  <div class="sizes">
+                      <h3>Choose Size:</h3>
+                      <select id="size-select">
+                      </select>
+                  </div>
+                  <div class="colors">
+                      <h3>Choose Color:</h3>
+                      <div id="color-options">
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </section>
+  </main>
+
+
+  <footer>
+    <div class="footer-content">
+        <div class="footer-section about">
+            <h3>About Us</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus maximus aliquet urna, at dapibus justo vehicula vel.</p>
+            <div class="contact">
+                <span><i class="fas fa-phone"></i> 123-456-789</span>
+                <span><i class="fas fa-envelope"></i> info@example.com</span>
+            </div>
+            <div class="socials">
+                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+        <div class="footer-section links">
+            <h3>Quick Links</h3>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Shop</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </div>
+        <div class="footer-section contact-form">
+            <h3>Contact Us</h3>
+            <form action="#">
+                <input type="email" name="email" class="text-input contact-input" placeholder="Your email address">
+                <textarea name="message" class="text-input contact-input" placeholder="Your message"></textarea>
+                <button type="submit" class="btn btn-big contact-btn">
+                    <i class="fas fa-envelope"></i>
+                    Send
+                </button>
+            </form>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        &copy; 2024 O'STIN. All rights reserved.
+    </div>
+</footer>
+
+    <script src="../script/IndexScript/functions.js"></script>
+    <script src="../script/IndexScript/script.js"></script>
+    <script src="../script/IndexScript/Products/product.js"></script>
+    <script src="../script/IndexScript/Products/product-data.js"></script>
+    <script src="../script/OrderPageScript/product-Actions.js"></script>
+    <script src="../script/OrderPageScript/product-Details.js"></script>
+    <script src="../script/side-menu.js"></script>
+</body>
+</html>

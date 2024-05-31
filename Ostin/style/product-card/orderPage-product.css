@@ -1,0 +1,55 @@
+.product-display {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 20px;
+}
+
+.product-image-container {
+    width: 500px;
+    height: 650px;
+    position: relative;
+    margin-right: 50px;
+    margin-top: 20px; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.product-image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Заполняет контейнер */
+}
+
+.product-image-container .prev, .product-image-container .next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 20px;
+    cursor: pointer;
+    z-index: 10;
+}
+
+.product-image-container .prev {
+    left: 10px;
+}
+
+.product-image-container .next {
+    right: 10px;
+}
+
+.product-details {
+    max-width: 300px;
+    margin-left: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.product-options {
+    margin-top: 20px;
+}
