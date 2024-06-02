@@ -10,7 +10,6 @@ nav {
     display: flex;
     gap: 10em;
     margin-right: 1em; 
-
 }
 
 .nav-links li {
@@ -44,7 +43,7 @@ nav {
     left: 0;
 }
 
-
+/* Dropdown Styles */
 .nav-links .dropdown-content {
     list-style-type: none;
     padding: 0;
@@ -89,7 +88,7 @@ nav {
     margin-right: 8px;
 }
 
-
+/* Dropdown Shop Styles */
 .nav-links .dropdown-shop {
     list-style: none;
     display: none;
@@ -126,6 +125,7 @@ nav {
     margin-right: 8px;
 }
 
+/* Menu Button for Mobile */
 .menu-button {
     display: none;
 }
